@@ -20,7 +20,6 @@ const (
 
 func parsePackage(data string) (int, time.Duration, error) {
 	// TODO: реализовать функцию -- OK
-
 	array := strings.Split(data, ",")
 	fmt.Println(array)
 	if len(array) != 2 {
@@ -29,7 +28,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 
 	stepsCount, err := strconv.Atoi(array[0])
 	if err != nil || stepsCount <= 0 {
-		return 0, 0, errors.New("Ошибка приведения шагов")
+		return 0, 0, errors.New("Ошибка приведения шагов ")
 	}
 
 	timeCount, err := time.ParseDuration(array[1])
@@ -39,11 +38,11 @@ func parsePackage(data string) (int, time.Duration, error) {
 	if timeCount <= 0 {
 		return 0, 0, errors.New("продолжительность должна быть больше 0")
 	}
-
 	return stepsCount, timeCount, nil
 }
 
 func DayActionInfo(data string, weight, height float64) string {
+	// TODO: реализовать функцию -- OK
 	steps, duration, err := parsePackage(data)
 	if err != nil {
 		log.Println(err)
